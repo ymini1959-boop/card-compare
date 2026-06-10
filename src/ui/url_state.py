@@ -5,15 +5,7 @@ import streamlit as st
 from src.calculator.effective_rate import ANCHOR_ID, MAX_COMPARE_CARDS
 from src.models.profile import PRIORITY_AXIS_PRESETS, PRIORITY_OPTIONS
 
-DEFAULT_CARDS = [
-    "rakuten-premium",
-    "rakuten-black",
-    "dcard-platinum",
-    "jcb-platinum",
-    "amex-platinum",
-    "saison-platinum-amex",
-    "mitsui-sumitomo-nl",
-]
+DEFAULT_CARDS = ["rakuten-premium"]
 
 
 def parse_query_params() -> dict:

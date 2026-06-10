@@ -3,18 +3,30 @@
 ## 前提
 
 - GitHub アカウント
-- 本リポジトリが GitHub に push 済みであること
+- [GitHub CLI](https://cli.github.com/)（`gh`）推奨
 
-## 手順
-
-### 1. GitHub リポジトリ作成
+## クイックデプロイ（推奨）
 
 ```bash
 cd ~/Desktop/card-compare
-git init
-git add .
-git commit -m "Initial commit: credit card comparison tool"
-git branch -M main
+./scripts/deploy.sh
+```
+
+初回はブラウザで GitHub ログイン（デバイス認証）が求められます。  
+push 完了後、表示される手順に従い [share.streamlit.io](https://share.streamlit.io) でアプリを作成してください。
+
+リポジトリ名を変える場合:
+
+```bash
+./scripts/deploy.sh my-card-compare
+```
+
+## 手動デプロイ
+
+### 1. GitHub へ push
+
+```bash
+cd ~/Desktop/card-compare
 git remote add origin https://github.com/<your-username>/card-compare.git
 git push -u origin main
 ```
@@ -23,7 +35,7 @@ git push -u origin main
 
 1. [share.streamlit.io](https://share.streamlit.io) にアクセス
 2. GitHub アカウントでログイン
-3. **New app** をクリック
+3. **Create app** をクリック
 4. 設定:
    - **Repository**: `<your-username>/card-compare`
    - **Branch**: `main`
