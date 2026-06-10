@@ -8,6 +8,7 @@ HIGHER_BETTER_AXES = {
     "effective_rate",
     "supermarket_rate",
     "convenience_rate",
+    "gasoline_rate",
     "daily_effective_rate",
     "annual_bonus",
     "car_insurance",
@@ -38,7 +39,7 @@ def _format_score(score: int) -> str:
 def parse_numeric(axis_id: str, value: str) -> float | None:
     if axis_id in {
         "effective_rate", "base_rate", "supermarket_rate",
-        "convenience_rate", "daily_effective_rate",
+        "convenience_rate", "gasoline_rate", "daily_effective_rate",
     }:
         m = re.search(r"([\d.]+)%", value)
         return float(m.group(1)) if m else None
@@ -85,6 +86,8 @@ def format_axis_value(card: dict, axis_id: str, result: CardResult) -> str:
         return _format_rate(result.supermarket_rate)
     if axis_id == "convenience_rate":
         return _format_rate(result.convenience_rate)
+    if axis_id == "gasoline_rate":
+        return _format_rate(result.gasoline_rate)
     if axis_id == "daily_effective_rate":
         return _format_rate(result.daily_effective_rate)
     if axis_id == "car_insurance":

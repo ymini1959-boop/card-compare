@@ -35,5 +35,8 @@
   "car_insurance": {
     "score": 76,
     "summary": "JCB損保の保険料決済でポイント還元"
+  },
+  "category_rates": {
+    "gasoline": 0.01
   }
 }

@@ -20,6 +20,7 @@ def enrich_category_fields(
 
     result.supermarket_rate = sm_rate
     result.convenience_rate = cv_rate
+    result.gasoline_rate = _category_rate(card, "gasoline")
 
     if daily_spend > 0:
         daily_points = int(sm_spend * sm_rate) + int(cv_spend * cv_rate)

@@ -39,5 +39,8 @@
   "car_insurance": {
     "score": 52,
     "summary": "保険料カード払い対応"
+  },
+  "category_rates": {
+    "gasoline": 0.01
   }
 }

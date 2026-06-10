@@ -7,12 +7,20 @@
   "tier_order": 3,
   "calculator": "generic",
   "is_anchor": false,
-  "annual_fee": {"standard": 55000},
+  "annual_fee": {
+    "standard": 55000
+  },
   "family_card_fee": 0,
   "base_rate": 0.005,
-  "category_rates": {"supermarket": 0.005, "convenience": 0.005},
+  "category_rates": {
+    "supermarket": 0.005,
+    "convenience": 0.005,
+    "gasoline": 0.005
+  },
   "point_expiry": "セゾンポイント",
-  "brands": ["Amex"],
+  "brands": [
+    "Amex"
+  ],
   "mobile_pay": true,
   "priority_pass": "PP付帯（年間利用条件あり）",
   "lounge": "Centurion Lounge等",

@@ -15,6 +15,7 @@ HIGHER_BETTER_AXES = {
     "base_rate",
     "supermarket_rate",
     "convenience_rate",
+    "gasoline_rate",
     "daily_effective_rate",
     "annual_bonus",
     "car_insurance",

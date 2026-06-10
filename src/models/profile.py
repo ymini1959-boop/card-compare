@@ -35,7 +35,7 @@ PRIORITY_AXIS_PRESETS = {
         "rakuten_fit", "docomo_fit", "paypay_fit", "marui_fit",
         "yahoo_fit", "amazon_fit", "aeon_fit",
     ],
-    "insurance": ["travel_insurance", "car_insurance", "priority_pass", "lounge"],
+    "insurance": ["travel_insurance", "car_insurance", "gasoline_rate", "priority_pass"],
     "family": ["family_card_fee", "annual_fee", "effective_annual_fee"],
     "status": ["concierge", "lounge", "priority_pass", "brands"],
     "ease": ["mobile_pay", "brands", "point_expiry", "family_card_fee"],

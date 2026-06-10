@@ -7,14 +7,24 @@
   "tier_order": 1,
   "calculator": "generic",
   "is_anchor": false,
-  "annual_fee": {"standard": 0},
+  "annual_fee": {
+    "standard": 0
+  },
   "family_card_fee": 0,
   "base_rate": 0.005,
   "shop_bonus_rate": 0.02,
   "shop_bonus_key": "aeon",
-  "category_rates": {"supermarket": 0.02, "convenience": 0.005},
+  "category_rates": {
+    "supermarket": 0.02,
+    "convenience": 0.005,
+    "gasoline": 0.005
+  },
   "point_expiry": "WAON POINT",
-  "brands": ["Visa", "Mastercard", "JCB"],
+  "brands": [
+    "Visa",
+    "Mastercard",
+    "JCB"
+  ],
   "mobile_pay": true,
   "priority_pass": false,
   "lounge": false,

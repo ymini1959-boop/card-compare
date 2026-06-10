@@ -32,7 +32,7 @@ def render_axis_picker(
     all_axis_ids = _ordered_axis_ids(axes_data)
 
     st.caption("タップで比較軸を一括選択")
-    priority_keys = list(PRIORITY_OPTIONS.keys()) + ["daily", "all"]
+    priority_keys = list(PRIORITY_OPTIONS.keys()) + ["daily", "car", "all"]
     cols_per_row = 2
     for row_start in range(0, len(priority_keys), cols_per_row):
         row_keys = priority_keys[row_start : row_start + cols_per_row]
@@ -40,6 +40,7 @@ def render_axis_picker(
         for col, key in zip(cols, row_keys):
             label = {
                 "daily": "日常買い物",
+                "car": "自動車",
                 "all": "すべて",
             }.get(key, PRIORITY_OPTIONS.get(key, key))
             if col.button(label, key=f"preset_{key}", use_container_width=True):

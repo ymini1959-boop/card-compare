@@ -99,6 +99,8 @@ def score_card_axis(card: dict, axis_id: str, result: CardResult) -> float | Non
         return result.supermarket_rate * 100.0
     if axis_id == "convenience_rate":
         return result.convenience_rate * 100.0
+    if axis_id == "gasoline_rate":
+        return result.gasoline_rate * 100.0
     if axis_id == "daily_effective_rate":
         return result.daily_effective_rate * 100.0
     if axis_id == "annual_bonus":

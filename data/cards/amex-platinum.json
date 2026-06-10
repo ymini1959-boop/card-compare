@@ -37,5 +37,8 @@
   "car_insurance": {
     "score": 40,
     "summary": "自動車保険の優遇は限定的"
+  },
+  "category_rates": {
+    "gasoline": 0.01
   }
 }

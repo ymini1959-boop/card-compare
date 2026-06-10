@@ -7,12 +7,20 @@
   "tier_order": 1,
   "calculator": "generic",
   "is_anchor": false,
-  "annual_fee": {"standard": 0},
+  "annual_fee": {
+    "standard": 0
+  },
   "family_card_fee": 0,
   "base_rate": 0.005,
-  "category_rates": {"supermarket": 0.005, "convenience": 0.005},
+  "category_rates": {
+    "supermarket": 0.005,
+    "convenience": 0.005,
+    "gasoline": 0.005
+  },
   "point_expiry": "セゾンポイント",
-  "brands": ["Amex"],
+  "brands": [
+    "Amex"
+  ],
   "mobile_pay": true,
   "priority_pass": false,
   "lounge": false,

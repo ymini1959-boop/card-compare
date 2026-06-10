@@ -15,11 +15,13 @@
     "status": ["concierge", "lounge", "priority_pass", "brands"],
     "ease": ["mobile_pay", "brands", "point_expiry", "family_card_fee"],
     "daily": ["supermarket_rate", "convenience_rate", "daily_effective_rate"],
+    "car": ["car_insurance", "gasoline_rate", "travel_insurance"],
     "all": [
       "annual_fee", "effective_annual_fee", "family_card_fee",
       "base_rate", "effective_rate", "supermarket_rate", "convenience_rate",
       "daily_effective_rate", "annual_bonus", "point_expiry",
-      "priority_pass", "lounge", "travel_insurance", "car_insurance", "concierge",
+      "car_insurance", "gasoline_rate",
+      "priority_pass", "lounge", "travel_insurance", "concierge",
       "rakuten_fit", "docomo_fit", "paypay_fit", "marui_fit",
       "yahoo_fit", "amazon_fit", "aeon_fit",
       "brands", "mobile_pay"
@@ -30,6 +32,7 @@
     "reward": "還元・ポイント",
     "daily": "日常のお買い物",
     "travel": "旅行・プレミアム",
+    "automotive": "自動車関連",
     "lifestyle": "ライフスタイル適合",
     "practical": "利便性"
   },
@@ -66,6 +69,15 @@
       ]
     },
     {
+      "id": "automotive",
+      "label": "自動車関連",
+      "description": "自動車保険・ガソリン還元",
+      "axes": [
+        {"id": "car_insurance", "label": "自動車保険優遇", "type": "score", "default": true},
+        {"id": "gasoline_rate", "label": "ガソリン・給油還元率", "type": "static", "default": true}
+      ]
+    },
+    {
       "id": "travel",
       "label": "旅行・プレミアム",
       "description": "空港・保険・コンシェルジュ",
@@ -73,7 +85,6 @@
         {"id": "priority_pass", "label": "プライオリティパス", "type": "static", "default": true},
         {"id": "lounge", "label": "空港ラウンジ", "type": "static", "default": true},
         {"id": "travel_insurance", "label": "旅行保険", "type": "static"},
-        {"id": "car_insurance", "label": "自動車保険優遇", "type": "score"},
         {"id": "concierge", "label": "コンシェルジュ", "type": "static"}
       ]
     },

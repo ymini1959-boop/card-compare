@@ -41,6 +41,7 @@
   },
   "category_rates": {
     "supermarket": 0.01,
-    "convenience": 0.01
+    "convenience": 0.01,
+    "gasoline": 0.01
   }
 }

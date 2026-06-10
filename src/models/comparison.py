@@ -16,6 +16,7 @@ class CardResult:
     static_values: dict[str, Any] = field(default_factory=dict)
     supermarket_rate: float = 0.0
     convenience_rate: float = 0.0
+    gasoline_rate: float = 0.0
     daily_effective_rate: float = 0.0
     car_insurance_score: int = 0
     car_insurance_summary: str = "なし"

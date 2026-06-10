@@ -7,12 +7,21 @@
   "tier_order": 1,
   "calculator": "generic",
   "is_anchor": false,
-  "annual_fee": {"standard": 0},
+  "annual_fee": {
+    "standard": 0
+  },
   "family_card_fee": 0,
   "base_rate": 0.007,
-  "category_rates": {"supermarket": 0.01, "convenience": 0.03},
+  "category_rates": {
+    "supermarket": 0.01,
+    "convenience": 0.03,
+    "gasoline": 0.01
+  },
   "point_expiry": "Vポイント",
-  "brands": ["Visa", "Mastercard"],
+  "brands": [
+    "Visa",
+    "Mastercard"
+  ],
   "mobile_pay": true,
   "priority_pass": false,
   "lounge": false,
