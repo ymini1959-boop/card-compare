@@ -127,7 +127,7 @@ def render_win_summary(
     st.markdown("".join(metrics_html), unsafe_allow_html=True)
 
     if len(leaders) > 1 and comparable_count > 0:
-        names = "・".join(results[c]["card_name"] for c in leaders)
+        names = "・".join(results[c].card_name for c in leaders)
         st.caption(f"同率トップ: {names}")
 
     return axis_winners
