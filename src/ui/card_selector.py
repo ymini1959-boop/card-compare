@@ -13,6 +13,33 @@ def _normalize_defaults(default_ids: list[str], cards_data: dict[str, dict]) -> 
     ][:MAX_COMPARE_CARDS]
 
 
+def finalize_card_selection(
+    previous: list[str],
+    picks_by_issuer: list[list[str]],
+    max_cards: int = MAX_COMPARE_CARDS,
+) -> list[str]:
+    """選択カードの順序を維持する。
+
+    - 既存選択: previous（URL・前回の確定順）を優先
+    - 新規追加: 発行会社ブロックの表示順で末尾に追加
+    - Streamlit multiselect の返却順（options 順）は使わない
+    """
+    newly_added: list[str] = []
+    seen_new: set[str] = set()
+    for picks in picks_by_issuer:
+        for cid in picks:
+            if cid not in seen_new:
+                newly_added.append(cid)
+                seen_new.add(cid)
+
+    picked_set = set(newly_added)
+    ordered = [c for c in previous if c in picked_set]
+    for cid in newly_added:
+        if cid not in ordered:
+            ordered.append(cid)
+    return ordered[:max_cards]
+
+
 def _sync_selection_from_defaults(
     default_ids: list[str],
     cards_data: dict[str, dict],
@@ -37,9 +64,14 @@ def render_card_selector(
 
     _sync_selection_from_defaults(default_ids, cards_data, issuers)
 
-    st.caption(f"発行会社別に選択（最大{MAX_COMPARE_CARDS}枚）")
+    previous_order = list(st.session_state.get("compare_card_selection", []))
 
-    selected: list[str] = []
+    st.caption(
+        f"発行会社別に選択（最大{MAX_COMPARE_CARDS}枚）"
+        "・比較表の列順は選択順（URLの cards= 順）を維持します"
+    )
+
+    issuer_picks: list[list[str]] = []
     for issuer in issuers:
         issuer_id = issuer["id"]
         card_ids = [c for c in grouped.get(issuer_id, []) if c != ANCHOR_ID]
@@ -49,7 +81,7 @@ def render_card_selector(
         widget_key = f"pick_{issuer_id}"
         if widget_key not in st.session_state:
             st.session_state[widget_key] = [
-                c for c in st.session_state.compare_card_selection if c in card_ids
+                c for c in previous_order if c in card_ids
             ]
 
         with st.container(border=True):
@@ -66,7 +98,9 @@ def render_card_selector(
                 key=widget_key,
                 label_visibility="collapsed",
             )
-            selected.extend(picks)
+            issuer_picks.append(picks)
+
+    selected = finalize_card_selection(previous_order, issuer_picks)
 
     if len(selected) > MAX_COMPARE_CARDS:
         st.warning(f"比較は最大{MAX_COMPARE_CARDS}枚までです。先頭{MAX_COMPARE_CARDS}枚を使用します。")
