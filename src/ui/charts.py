@@ -47,15 +47,22 @@ def render_rate_chart(
         if card_id not in cards:
             continue
         curve = effective_rate_curve(card_id, profile)
-        spends, rates = zip(*curve) if curve else ([], [])
+        if not curve:
+            continue
+        spends, rates = zip(*curve)
         color = CHART_COLORS.get(card_id, card_header_color(card_id))
         fig.add_trace(
             go.Scatter(
                 x=[s / 10_000 for s in spends],
-                y=[r * 100 for r in rates],
+                y=[round(r * 100, 3) for r in rates],
                 mode="lines",
                 name=cards[card_id]["name"],
                 line=dict(color=color, width=2.5 if card_id == "epos-platinum" else 2),
+                hovertemplate=(
+                    "%{fullData.name}<br>"
+                    "利用額: %{x:.0f}万円<br>"
+                    "実効還元率: %{y:.2f}%<extra></extra>"
+                ),
             )
         )
 
@@ -79,5 +86,9 @@ def render_rate_chart(
         yaxis=dict(gridcolor="#e8edf3", zeroline=False, tickfont=dict(size=11)),
         hovermode="x unified",
         hoverlabel=dict(font_size=12),
+        uirevision="rate_chart",
     )
+    if not fig.data:
+        st.caption("表示できるカードがありません。")
+        return
     st.plotly_chart(fig, use_container_width=True)

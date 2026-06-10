@@ -10,6 +10,7 @@ from src.ui.axis_values import (
     format_axis_value,
     parse_numeric,
 )
+from src.ui.benefit_scores import score_card_axis
 from src.ui.styles import card_header_color
 from src.ui.winners import get_axis_winners
 
@@ -21,6 +22,8 @@ def _cell_classes(
     anchor_val: str,
     winners: list[str],
     card_count: int,
+    results: dict[str, CardResult],
+    cards_data: dict[str, dict],
 ) -> str:
     classes = []
     if cid == ANCHOR_ID:
@@ -30,6 +33,11 @@ def _cell_classes(
     elif cid != ANCHOR_ID and axis_id in HIGHER_BETTER_AXES | LOWER_BETTER_AXES:
         num = parse_numeric(axis_id, value)
         anchor_num = parse_numeric(axis_id, anchor_val)
+        if num is None and cid in results and ANCHOR_ID in results:
+            num = score_card_axis(cards_data[cid], axis_id, results[cid])
+            anchor_num = score_card_axis(
+                cards_data[ANCHOR_ID], axis_id, results[ANCHOR_ID]
+            )
         if num is not None and anchor_num is not None:
             if axis_id in HIGHER_BETTER_AXES:
                 if num > anchor_num:
@@ -87,7 +95,10 @@ def render_comparison_table(
 
         for cid in card_ids:
             val = row_values[cid]
-            cls = _cell_classes(axis_id, cid, val, anchor_val, winners, len(card_ids))
+            cls = _cell_classes(
+                axis_id, cid, val, anchor_val, winners, len(card_ids),
+                results, cards_data,
+            )
             badge = ""
             if cid in winners and len(winners) < len(card_ids):
                 tie_cls = "badge-tie" if len(winners) > 1 else ""

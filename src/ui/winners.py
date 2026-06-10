@@ -1,11 +1,7 @@
 from __future__ import annotations
 
-from src.ui.axis_values import (
-    HIGHER_BETTER_AXES,
-    LOWER_BETTER_AXES,
-    format_axis_value,
-    parse_numeric,
-)
+from src.models.comparison import CardResult
+from src.ui.benefit_scores import score_card_axis
 
 BENEFIT_AXES = {
     "priority_pass",
@@ -14,36 +10,31 @@ BENEFIT_AXES = {
     "concierge",
 }
 
-COMPARABLE_AXES = (
-    HIGHER_BETTER_AXES
-    | LOWER_BETTER_AXES
-    | BENEFIT_AXES
-    | {"mobile_pay", "point_expiry"}
-)
+HIGHER_BETTER_AXES = {
+    "effective_rate",
+    "base_rate",
+    "supermarket_rate",
+    "convenience_rate",
+    "daily_effective_rate",
+    "annual_bonus",
+    "car_insurance",
+    "rakuten_fit",
+    "docomo_fit",
+    "paypay_fit",
+    "marui_fit",
+    "yahoo_fit",
+    "amazon_fit",
+    "aeon_fit",
+    "brands",
+    "point_expiry",
+    *BENEFIT_AXES,
+}
+
+LOWER_BETTER_AXES = {"annual_fee", "effective_annual_fee", "family_card_fee"}
 
 
-def _benefit_score(value: str) -> float:
-    if not value or value in ("なし", "—", "False"):
-        return 0.0
-    return float(len(value))
-
-
-def score_cell(axis_id: str, value: str) -> float | None:
-    if axis_id in HIGHER_BETTER_AXES or axis_id in LOWER_BETTER_AXES:
-        return parse_numeric(axis_id, value)
-    if axis_id in BENEFIT_AXES:
-        return _benefit_score(value)
-    if axis_id == "mobile_pay":
-        return 1.0 if value == "対応" else 0.0
-    if axis_id == "point_expiry":
-        if "永久" in value:
-            return 3.0
-        if "実質無期限" in value:
-            return 2.5
-        return 1.0 if value not in ("—", "") else 0.0
-    if axis_id == "car_insurance":
-        return parse_numeric(axis_id, value)
-    return None
+def score_cell(axis_id: str, card: dict, result: CardResult) -> float | None:
+    return score_card_axis(card, axis_id, result)
 
 
 def get_axis_winners(
@@ -54,9 +45,7 @@ def get_axis_winners(
 ) -> list[str]:
     scores: dict[str, float] = {}
     for cid in card_ids:
-        card = cards_data[cid]
-        value = format_axis_value(card, axis_id, results[cid])
-        score = score_cell(axis_id, value)
+        score = score_cell(axis_id, cards_data[cid], results[cid])
         if score is None:
             return []
         scores[cid] = score
@@ -66,7 +55,7 @@ def get_axis_winners(
     else:
         best = max(scores.values())
 
-    if best <= 0 and axis_id in BENEFIT_AXES | {"mobile_pay"}:
+    if best <= 0 and axis_id in BENEFIT_AXES | {"mobile_pay", "brands"}:
         return []
 
     return [cid for cid, s in scores.items() if s == best]
@@ -77,7 +66,7 @@ def compute_win_counts(
     card_ids: list[str],
     results: dict,
     cards_data: dict,
-) -> tuple[dict[str, int], dict[str, list[str]]]:
+) -> tuple[dict[str, int], dict[str, list[str]], int]:
     counts = {cid: 0 for cid in card_ids}
     axis_winners: dict[str, list[str]] = {}
 
@@ -89,4 +78,9 @@ def compute_win_counts(
         for w in winners:
             counts[w] += 1
 
-    return counts, axis_winners
+    comparable_count = sum(
+        1
+        for aid in selected_axes
+        if axis_winners.get(aid) and len(axis_winners[aid]) < len(card_ids)
+    )
+    return counts, axis_winners, comparable_count

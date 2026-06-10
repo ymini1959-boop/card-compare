@@ -64,12 +64,8 @@ def render_win_summary(
     results: dict,
     cards_data: dict,
 ) -> dict[str, list[str]]:
-    counts, axis_winners = compute_win_counts(
+    counts, axis_winners, comparable_count = compute_win_counts(
         selected_axes, card_ids, results, cards_data
-    )
-
-    comparable_count = sum(
-        1 for aid in selected_axes if axis_winners.get(aid)
     )
 
     st.markdown('<p class="section-icon-title">軸別の優位カード</p>', unsafe_allow_html=True)
@@ -97,22 +93,41 @@ def render_win_summary(
     st.markdown("".join(chips_html), unsafe_allow_html=True)
 
     st.markdown('<p class="section-icon-title">優位軸の獲得数</p>', unsafe_allow_html=True)
+    st.caption(
+        f"選択した {len(selected_axes)} 軸のうち、"
+        f"勝敗がついた {comparable_count} 軸で集計しています。"
+    )
+
     max_count = max(counts.values()) if counts else 0
+    leaders = [cid for cid, c in counts.items() if c == max_count and max_count > 0]
+    sorted_ids = sorted(
+        card_ids,
+        key=lambda cid: (-counts[cid], cid == ANCHOR_ID),
+    )
+
     metrics_html = ['<div class="win-metrics-scroll">']
-    for cid in card_ids:
+    for cid in sorted_ids:
         count = counts[cid]
         is_anchor = cid == ANCHOR_ID
         color = card_header_color(cid)
         anchor_cls = " anchor" if is_anchor else ""
-        crown = '<span class="crown">👑</span>' if count == max_count and max_count > 0 else ""
+        crown = ""
+        if count == max_count and max_count > 0 and len(leaders) == 1:
+            crown = '<span class="crown">👑</span>'
+        elif count == max_count and max_count > 0 and len(leaders) > 1:
+            crown = '<span class="crown">🤝</span>'
         metrics_html.append(
             f'<div class="win-metric{anchor_cls}">'
             f'<div class="count" style="color:{color};">{count}{crown}</div>'
-            f'<div class="label">優位 {comparable_count}軸中</div>'
+            f'<div class="label">{count} / {comparable_count} 軸で優位</div>'
             f'<div class="name">{results[cid].card_name}</div>'
             f"</div>"
         )
     metrics_html.append("</div>")
     st.markdown("".join(metrics_html), unsafe_allow_html=True)
+
+    if len(leaders) > 1 and comparable_count > 0:
+        names = "・".join(results[c]["card_name"] for c in leaders)
+        st.caption(f"同率トップ: {names}")
 
     return axis_winners
