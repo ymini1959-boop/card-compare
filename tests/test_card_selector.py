@@ -63,6 +63,29 @@ def test_finalize_drops_deselected():
     ]
 
 
+def test_finalize_preserves_click_order_within_issuer():
+    """同一発行会社でプレミアム→ゴールドと選んでも tier_order に並べ替えない。"""
+    previous = ["rakuten-premium"]
+    # multiselect は tier_order で gold が先に返る
+    picks_by_issuer = [["rakuten-gold", "rakuten-premium"]]
+    assert finalize_card_selection(previous, picks_by_issuer) == [
+        "rakuten-premium",
+        "rakuten-gold",
+    ]
+
+
+def test_finalize_three_rakuten_cards_in_selection_order():
+    previous = ["rakuten-gold", "rakuten-premium"]
+    picks_by_issuer = [
+        ["rakuten-gold", "rakuten-premium", "rakuten-black"],
+    ]
+    assert finalize_card_selection(previous, picks_by_issuer) == [
+        "rakuten-gold",
+        "rakuten-premium",
+        "rakuten-black",
+    ]
+
+
 def test_finalize_respects_max_cards():
     previous = ["a", "b", "c", "d"]
     picks_by_issuer = [["a"], ["b"], ["c"], ["d"]]

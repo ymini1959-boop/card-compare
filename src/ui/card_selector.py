@@ -21,23 +21,33 @@ def finalize_card_selection(
     """選択カードの順序を維持する。
 
     - 既存選択: previous（URL・前回の確定順）を優先
-    - 新規追加: 発行会社ブロックの表示順で末尾に追加
-    - Streamlit multiselect の返却順（options 順）は使わない
+    - 新規追加: 前回に無かったカードだけ末尾へ（クリック順を保持）
+    - Streamlit multiselect の返却順（tier_order / options 順）は使わない
     """
-    newly_added: list[str] = []
-    seen_new: set[str] = set()
+    picked_set: set[str] = set()
+    for picks in picks_by_issuer:
+        picked_set.update(picks)
+
+    ordered = [c for c in previous if c in picked_set]
+    known = set(previous)
+
     for picks in picks_by_issuer:
         for cid in picks:
-            if cid not in seen_new:
-                newly_added.append(cid)
-                seen_new.add(cid)
+            if cid in picked_set and cid not in known:
+                ordered.append(cid)
+                known.add(cid)
 
-    picked_set = set(newly_added)
-    ordered = [c for c in previous if c in picked_set]
-    for cid in newly_added:
-        if cid not in ordered:
-            ordered.append(cid)
     return ordered[:max_cards]
+
+
+def _sync_widget_order(widget_key: str, canonical: list[str]) -> None:
+    """multiselect のタグ表示を確定順に揃える（選択内容は変えない）。"""
+    if widget_key not in st.session_state:
+        st.session_state[widget_key] = list(canonical)
+        return
+    current = st.session_state[widget_key]
+    if set(current) == set(canonical) and current != canonical:
+        st.session_state[widget_key] = list(canonical)
 
 
 def _sync_selection_from_defaults(
@@ -79,10 +89,8 @@ def render_card_selector(
             continue
         color = issuer.get("color", "#334155")
         widget_key = f"pick_{issuer_id}"
-        if widget_key not in st.session_state:
-            st.session_state[widget_key] = [
-                c for c in previous_order if c in card_ids
-            ]
+        canonical_for_issuer = [c for c in previous_order if c in card_ids]
+        _sync_widget_order(widget_key, canonical_for_issuer)
 
         with st.container(border=True):
             st.markdown(
