@@ -1,0 +1,59 @@
+{
+  "id": "dcard-platinum",
+  "name": "dカード PLATINUM",
+  "issuer": "NTTドコモ",
+  "issuer_group": "dcard",
+  "tier": "platinum",
+  "tier_order": 4,
+  "calculator": "dcard",
+  "is_anchor": false,
+  "annual_fee": {
+    "standard": 29700
+  },
+  "family_card_fee": 0,
+  "base_rate": 0.01,
+  "docomo_rate": 0.2,
+  "annual_bonus_tiers": [
+    {
+      "min_spend": 1000000,
+      "bonus_yen": 20000
+    },
+    {
+      "min_spend": 2000000,
+      "bonus_yen": 30000
+    },
+    {
+      "min_spend": 3000000,
+      "bonus_yen": 40000
+    }
+  ],
+  "point_expiry": "dポイント（有効期限あり）",
+  "brands": [
+    "Visa",
+    "Mastercard"
+  ],
+  "mobile_pay": true,
+  "priority_pass": "年10回まで無料",
+  "lounge": "国内主要空港・ハワイ無料",
+  "travel_insurance": "海外最高1億円 / 国内最高5000万円",
+  "concierge": false,
+  "ecosystem_affinity": {
+    "docomo": 98,
+    "rakuten": 20,
+    "paypay": 25,
+    "marui": 15,
+    "yahoo": 20,
+    "amazon": 25,
+    "aeon": 20
+  },
+  "official_url": "https://dcard.docomo.ne.jp/st/dcard_platinum/index.html",
+  "last_updated": "2026-06-01",
+  "car_insurance": {
+    "score": 88,
+    "summary": "ドコモの自動車保険でdポイント還元"
+  },
+  "category_rates": {
+    "supermarket": 0.01,
+    "convenience": 0.01
+  }
+}

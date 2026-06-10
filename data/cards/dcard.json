@@ -1,0 +1,46 @@
+{
+  "id": "dcard",
+  "name": "dカード",
+  "issuer": "NTTドコモ",
+  "issuer_group": "dcard",
+  "tier": "standard",
+  "tier_order": 1,
+  "calculator": "dcard",
+  "is_anchor": false,
+  "annual_fee": {
+    "standard": 0
+  },
+  "family_card_fee": 0,
+  "base_rate": 0.01,
+  "docomo_rate": 0.1,
+  "annual_bonus_tiers": [],
+  "point_expiry": "dポイント（有効期限あり）",
+  "brands": [
+    "Visa",
+    "Mastercard"
+  ],
+  "mobile_pay": true,
+  "priority_pass": false,
+  "lounge": false,
+  "travel_insurance": false,
+  "concierge": false,
+  "ecosystem_affinity": {
+    "docomo": 90,
+    "rakuten": 20,
+    "paypay": 25,
+    "marui": 15,
+    "yahoo": 20,
+    "amazon": 25,
+    "aeon": 20
+  },
+  "official_url": "https://dcard.docomo.ne.jp/st/dcard_dcard/index.html",
+  "last_updated": "2026-06-01",
+  "car_insurance": {
+    "score": 88,
+    "summary": "ドコモの自動車保険でdポイント還元"
+  },
+  "category_rates": {
+    "supermarket": 0.01,
+    "convenience": 0.01
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "id": "jcb-gold",
+  "name": "JCBゴールド",
+  "issuer": "JCB",
+  "issuer_group": "jcb",
+  "tier": "gold",
+  "tier_order": 2,
+  "calculator": "jcb",
+  "is_anchor": false,
+  "annual_fee": {
+    "standard": 11000
+  },
+  "family_card_fee": 0,
+  "base_rate": 0.01,
+  "point_expiry": "JCBポイント",
+  "brands": [
+    "JCB"
+  ],
+  "mobile_pay": true,
+  "priority_pass": false,
+  "lounge": "国内主要空港",
+  "travel_insurance": "海外最高1億円 / 国内最高5000万円",
+  "concierge": "JCBコンシェルジュデスク",
+  "ecosystem_affinity": {
+    "amazon": 45,
+    "rakuten": 28,
+    "docomo": 22,
+    "paypay": 22,
+    "marui": 18,
+    "yahoo": 22,
+    "aeon": 28
+  },
+  "official_url": "https://www.jcb.co.jp/ordercard/kojin_card/gold.html",
+  "last_updated": "2026-06-01",
+  "car_insurance": {
+    "score": 76,
+    "summary": "JCB損保の保険料決済でポイント還元"
+  }
+}

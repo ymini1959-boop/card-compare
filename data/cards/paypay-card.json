@@ -1,0 +1,43 @@
+{
+  "id": "paypay-card",
+  "name": "PayPayカード",
+  "issuer": "PayPayカード",
+  "issuer_group": "paypay",
+  "tier": "standard",
+  "tier_order": 1,
+  "calculator": "paypay",
+  "is_anchor": false,
+  "annual_fee": {
+    "standard": 0
+  },
+  "family_card_fee": 0,
+  "base_rate": 0.01,
+  "step_max_rate": 0.015,
+  "yahoo_rate": 0.05,
+  "point_expiry": "PayPayポイント",
+  "brands": [
+    "Visa",
+    "Mastercard",
+    "JCB"
+  ],
+  "mobile_pay": true,
+  "priority_pass": false,
+  "lounge": false,
+  "travel_insurance": false,
+  "concierge": false,
+  "ecosystem_affinity": {
+    "paypay": 90,
+    "yahoo": 85,
+    "rakuten": 20,
+    "docomo": 20,
+    "marui": 12,
+    "amazon": 25,
+    "aeon": 18
+  },
+  "official_url": "https://www.paypay-card.co.jp/",
+  "last_updated": "2026-06-01",
+  "car_insurance": {
+    "score": 52,
+    "summary": "保険料カード払い対応"
+  }
+}

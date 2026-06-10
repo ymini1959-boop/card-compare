@@ -1,0 +1,48 @@
+{
+  "id": "epos-platinum",
+  "name": "エポスプラチナカード",
+  "issuer": "エポスカード",
+  "issuer_group": "epos",
+  "tier": "platinum",
+  "tier_order": 3,
+  "calculator": "epos",
+  "is_anchor": true,
+  "annual_fee": {
+    "standard": 30000,
+    "invite": 20000,
+    "discounted": {
+      "condition": "年間100万円以上利用で翌年以降",
+      "amount": 20000
+    }
+  },
+  "family_card_fee": 0,
+  "base_rate": 0.005,
+  "point_expiry": "永久（プラチナ限定）",
+  "brands": [
+    "Visa"
+  ],
+  "mobile_pay": true,
+  "priority_pass": "無料付帯（制限なし）",
+  "lounge": "PP経由 世界148カ国以上",
+  "travel_insurance": "海外・国内（Visaプラチナ特典）",
+  "concierge": "Visaプラチナコンシェルジュ",
+  "ecosystem_affinity": {
+    "marui": 90,
+    "rakuten": 25,
+    "docomo": 20,
+    "paypay": 20,
+    "yahoo": 20,
+    "amazon": 25,
+    "aeon": 20
+  },
+  "official_url": "https://www.eposcard.co.jp/platinum/main.html",
+  "last_updated": "2026-06-01",
+  "car_insurance": {
+    "score": 35,
+    "summary": "自動車保険提携なし（旅行保険は付帯）"
+  },
+  "category_rates": {
+    "supermarket": 0.005,
+    "convenience": 0.005
+  }
+}

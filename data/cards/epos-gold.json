@@ -1,0 +1,43 @@
+{
+  "id": "epos-gold",
+  "name": "エポスゴールドカード",
+  "issuer": "エポスカード",
+  "issuer_group": "epos",
+  "tier": "gold",
+  "tier_order": 2,
+  "calculator": "epos_gold",
+  "is_anchor": false,
+  "annual_fee": {
+    "standard": 11000
+  },
+  "family_card_fee": 0,
+  "base_rate": 0.005,
+  "point_expiry": "2年（ゴールド特典あり）",
+  "brands": [
+    "Visa"
+  ],
+  "mobile_pay": true,
+  "priority_pass": false,
+  "lounge": false,
+  "travel_insurance": "海外・国内（Visaゴールド特典）",
+  "concierge": false,
+  "ecosystem_affinity": {
+    "marui": 85,
+    "rakuten": 25,
+    "docomo": 15,
+    "paypay": 15,
+    "yahoo": 15,
+    "amazon": 20,
+    "aeon": 20
+  },
+  "official_url": "https://www.eposcard.co.jp/gold/main.html",
+  "last_updated": "2026-06-01",
+  "car_insurance": {
+    "score": 35,
+    "summary": "自動車保険提携なし（旅行保険は付帯）"
+  },
+  "category_rates": {
+    "supermarket": 0.005,
+    "convenience": 0.005
+  }
+}

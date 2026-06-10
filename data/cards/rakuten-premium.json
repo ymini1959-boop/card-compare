@@ -1,0 +1,47 @@
+{
+  "id": "rakuten-premium",
+  "name": "楽天プレミアムカード",
+  "issuer": "楽天カード",
+  "issuer_group": "rakuten",
+  "tier": "premium",
+  "tier_order": 3,
+  "calculator": "rakuten",
+  "is_anchor": false,
+  "annual_fee": {
+    "standard": 11000
+  },
+  "family_card_fee": 550,
+  "base_rate": 0.01,
+  "rakuten_market_rate": 0.03,
+  "point_expiry": "実質無期限（獲得のたび延長）",
+  "brands": [
+    "Visa",
+    "Mastercard",
+    "JCB",
+    "Amex"
+  ],
+  "mobile_pay": true,
+  "priority_pass": "年5回まで無料（6回目以降US$35/回）",
+  "lounge": "PP経由 世界1400カ所以上",
+  "travel_insurance": "海外最高5000万円 / 国内最高5000万円",
+  "concierge": false,
+  "ecosystem_affinity": {
+    "rakuten": 92,
+    "yahoo": 25,
+    "paypay": 22,
+    "docomo": 20,
+    "marui": 12,
+    "amazon": 30,
+    "aeon": 15
+  },
+  "official_url": "https://www.rakuten-card.co.jp/card/rakuten-premium-card/",
+  "last_updated": "2026-06-01",
+  "car_insurance": {
+    "score": 82,
+    "summary": "楽天損保の保険料払いでポイント還元"
+  },
+  "category_rates": {
+    "supermarket": 0.01,
+    "convenience": 0.01
+  }
+}

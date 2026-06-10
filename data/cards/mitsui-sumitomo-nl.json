@@ -1,0 +1,36 @@
+{
+  "id": "mitsui-sumitomo-nl",
+  "name": "三井住友カード（NL）",
+  "issuer": "三井住友カード",
+  "issuer_group": "mitsui",
+  "tier": "standard",
+  "tier_order": 1,
+  "calculator": "generic",
+  "is_anchor": false,
+  "annual_fee": {"standard": 0},
+  "family_card_fee": 0,
+  "base_rate": 0.007,
+  "category_rates": {"supermarket": 0.01, "convenience": 0.03},
+  "point_expiry": "Vポイント",
+  "brands": ["Visa", "Mastercard"],
+  "mobile_pay": true,
+  "priority_pass": false,
+  "lounge": false,
+  "travel_insurance": false,
+  "concierge": false,
+  "car_insurance": {
+    "score": 55,
+    "summary": "保険料カード払い対応（提携優待は限定的）"
+  },
+  "ecosystem_affinity": {
+    "rakuten": 25,
+    "docomo": 20,
+    "paypay": 30,
+    "marui": 15,
+    "yahoo": 22,
+    "amazon": 30,
+    "aeon": 25
+  },
+  "official_url": "https://www.smbc-card.com/",
+  "last_updated": "2026-06-01"
+}

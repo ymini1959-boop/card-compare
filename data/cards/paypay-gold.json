@@ -1,0 +1,49 @@
+{
+  "id": "paypay-gold",
+  "name": "PayPayカード ゴールド",
+  "issuer": "PayPayカード",
+  "issuer_group": "paypay",
+  "tier": "gold",
+  "tier_order": 2,
+  "calculator": "paypay",
+  "is_anchor": false,
+  "annual_fee": {
+    "standard": 11000
+  },
+  "family_card_fee": 0,
+  "base_rate": 0.01,
+  "step_max_rate": 0.015,
+  "yahoo_rate": 0.05,
+  "annual_bonus_tiers": [
+    {
+      "min_spend": 1000000,
+      "bonus_points": 11000
+    }
+  ],
+  "point_expiry": "PayPayポイント",
+  "brands": [
+    "Visa",
+    "Mastercard",
+    "JCB"
+  ],
+  "mobile_pay": true,
+  "priority_pass": false,
+  "lounge": "国内主要空港・ハワイ無料",
+  "travel_insurance": "海外最高1億円 / 国内最高5000万円",
+  "concierge": false,
+  "ecosystem_affinity": {
+    "paypay": 95,
+    "yahoo": 88,
+    "rakuten": 20,
+    "docomo": 20,
+    "marui": 12,
+    "amazon": 25,
+    "aeon": 18
+  },
+  "official_url": "https://www.paypay-card.co.jp/",
+  "last_updated": "2026-06-01",
+  "car_insurance": {
+    "score": 52,
+    "summary": "保険料カード払い対応"
+  }
+}

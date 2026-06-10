@@ -1,0 +1,36 @@
+{
+  "id": "saison-pearl-amex",
+  "name": "セゾンパール・アメックス",
+  "issuer": "クレディセゾン",
+  "issuer_group": "saison",
+  "tier": "gold",
+  "tier_order": 2,
+  "calculator": "generic",
+  "is_anchor": false,
+  "annual_fee": {"standard": 11000},
+  "family_card_fee": 0,
+  "base_rate": 0.005,
+  "category_rates": {"supermarket": 0.005, "convenience": 0.005},
+  "point_expiry": "セゾンポイント",
+  "brands": ["Amex"],
+  "mobile_pay": true,
+  "priority_pass": false,
+  "lounge": false,
+  "travel_insurance": "海外最高1億円",
+  "concierge": false,
+  "car_insurance": {
+    "score": 68,
+    "summary": "セゾン自動車保険の保険料決済でポイント還元"
+  },
+  "ecosystem_affinity": {
+    "rakuten": 22,
+    "docomo": 25,
+    "paypay": 28,
+    "marui": 35,
+    "yahoo": 25,
+    "amazon": 28,
+    "aeon": 22
+  },
+  "official_url": "https://www.saisoncard.co.jp/",
+  "last_updated": "2026-06-01"
+}

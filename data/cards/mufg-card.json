@@ -1,0 +1,36 @@
+{
+  "id": "mufg-card",
+  "name": "三菱UFJカード",
+  "issuer": "三菱UFJニコス",
+  "issuer_group": "mufg",
+  "tier": "standard",
+  "tier_order": 1,
+  "calculator": "generic",
+  "is_anchor": false,
+  "annual_fee": {"standard": 0},
+  "family_card_fee": 0,
+  "base_rate": 0.005,
+  "category_rates": {"supermarket": 0.005, "convenience": 0.005},
+  "point_expiry": "グローバルポイント",
+  "brands": ["Visa", "Mastercard", "JCB"],
+  "mobile_pay": true,
+  "priority_pass": false,
+  "lounge": false,
+  "travel_insurance": false,
+  "concierge": false,
+  "car_insurance": {
+    "score": 50,
+    "summary": "保険料カード払い対応"
+  },
+  "ecosystem_affinity": {
+    "rakuten": 22,
+    "docomo": 20,
+    "paypay": 22,
+    "marui": 15,
+    "yahoo": 20,
+    "amazon": 25,
+    "aeon": 22
+  },
+  "official_url": "https://www.cr.mufg.jp/",
+  "last_updated": "2026-06-01"
+}

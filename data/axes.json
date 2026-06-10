@@ -1,0 +1,104 @@
+{
+  "presets": {
+    "cost": ["annual_fee", "effective_annual_fee", "family_card_fee"],
+    "reward": [
+      "base_rate", "effective_rate", "supermarket_rate", "convenience_rate",
+      "daily_effective_rate", "annual_bonus", "point_expiry"
+    ],
+    "travel": ["priority_pass", "lounge", "travel_insurance", "concierge"],
+    "ecosystem": [
+      "rakuten_fit", "docomo_fit", "paypay_fit", "marui_fit",
+      "yahoo_fit", "amazon_fit", "aeon_fit"
+    ],
+    "insurance": ["travel_insurance", "car_insurance", "priority_pass", "lounge"],
+    "family": ["family_card_fee", "annual_fee", "effective_annual_fee"],
+    "status": ["concierge", "lounge", "priority_pass", "brands"],
+    "ease": ["mobile_pay", "brands", "point_expiry", "family_card_fee"],
+    "daily": ["supermarket_rate", "convenience_rate", "daily_effective_rate"],
+    "all": [
+      "annual_fee", "effective_annual_fee", "family_card_fee",
+      "base_rate", "effective_rate", "supermarket_rate", "convenience_rate",
+      "daily_effective_rate", "annual_bonus", "point_expiry",
+      "priority_pass", "lounge", "travel_insurance", "car_insurance", "concierge",
+      "rakuten_fit", "docomo_fit", "paypay_fit", "marui_fit",
+      "yahoo_fit", "amazon_fit", "aeon_fit",
+      "brands", "mobile_pay"
+    ]
+  },
+  "category_presets": {
+    "cost": "コスト",
+    "reward": "還元・ポイント",
+    "daily": "日常のお買い物",
+    "travel": "旅行・プレミアム",
+    "lifestyle": "ライフスタイル適合",
+    "practical": "利便性"
+  },
+  "categories": [
+    {
+      "id": "cost",
+      "label": "コスト",
+      "description": "年会費・実質コスト",
+      "axes": [
+        {"id": "annual_fee", "label": "年会費", "type": "static", "default": true},
+        {"id": "effective_annual_fee", "label": "実質年会費（試算）", "type": "computed", "default": true},
+        {"id": "family_card_fee", "label": "家族カード年会費", "type": "static"}
+      ]
+    },
+    {
+      "id": "reward",
+      "label": "還元・ポイント",
+      "description": "還元率・ボーナス・ポイント",
+      "axes": [
+        {"id": "base_rate", "label": "基本還元率", "type": "static", "default": true},
+        {"id": "effective_rate", "label": "実効還元率（あなたの条件）", "type": "computed", "default": true},
+        {"id": "annual_bonus", "label": "年間利用ボーナス", "type": "computed"},
+        {"id": "point_expiry", "label": "ポイント有効期限", "type": "static"}
+      ]
+    },
+    {
+      "id": "daily",
+      "label": "日常のお買い物",
+      "description": "スーパー・コンビニでの還元",
+      "axes": [
+        {"id": "supermarket_rate", "label": "スーパー還元率", "type": "static", "default": true},
+        {"id": "convenience_rate", "label": "コンビニ還元率", "type": "static", "default": true},
+        {"id": "daily_effective_rate", "label": "日常買い物の実効還元（試算）", "type": "computed", "default": true}
+      ]
+    },
+    {
+      "id": "travel",
+      "label": "旅行・プレミアム",
+      "description": "空港・保険・コンシェルジュ",
+      "axes": [
+        {"id": "priority_pass", "label": "プライオリティパス", "type": "static", "default": true},
+        {"id": "lounge", "label": "空港ラウンジ", "type": "static", "default": true},
+        {"id": "travel_insurance", "label": "旅行保険", "type": "static"},
+        {"id": "car_insurance", "label": "自動車保険優遇", "type": "score"},
+        {"id": "concierge", "label": "コンシェルジュ", "type": "static"}
+      ]
+    },
+    {
+      "id": "lifestyle",
+      "label": "ライフスタイル適合",
+      "description": "経済圏との相性スコア",
+      "axes": [
+        {"id": "rakuten_fit", "label": "楽天経済圏との相性", "type": "score"},
+        {"id": "docomo_fit", "label": "ドコモとの相性", "type": "score"},
+        {"id": "paypay_fit", "label": "PayPay経済圏との相性", "type": "score"},
+        {"id": "marui_fit", "label": "マルイ利用との相性", "type": "score"},
+        {"id": "yahoo_fit", "label": "Yahoo!経済圏との相性", "type": "score"},
+        {"id": "amazon_fit", "label": "Amazon利用との相性", "type": "score"},
+        {"id": "aeon_fit", "label": "イオン利用との相性", "type": "score"}
+      ]
+    },
+    {
+      "id": "practical",
+      "label": "利便性",
+      "description": "ブランド・決済の使いやすさ",
+      "axes": [
+        {"id": "brands", "label": "対応ブランド", "type": "static"},
+        {"id": "mobile_pay", "label": "スマホ決済", "type": "static"}
+      ]
+    }
+  ]
+}

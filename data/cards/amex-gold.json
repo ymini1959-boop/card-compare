@@ -1,0 +1,41 @@
+{
+  "id": "amex-gold",
+  "name": "アメックス・ゴールド・プリファード",
+  "issuer": "アメリカン・エキスプレス",
+  "issuer_group": "amex",
+  "tier": "gold",
+  "tier_order": 2,
+  "calculator": "amex",
+  "is_anchor": false,
+  "annual_fee": {
+    "standard": 39600
+  },
+  "family_card_fee": 0,
+  "family_card_free_count": 2,
+  "base_rate": 0.01,
+  "overseas_rate": 0.03,
+  "point_expiry": "無期限",
+  "brands": [
+    "Amex"
+  ],
+  "mobile_pay": true,
+  "priority_pass": "年2回まで無料",
+  "lounge": "Centurion Lounge等・同伴者1名無料",
+  "travel_insurance": "海外最高1億円 / 国内最高5000万円",
+  "concierge": "プラチナ・コンシェルジュ",
+  "ecosystem_affinity": {
+    "rakuten": 28,
+    "docomo": 22,
+    "paypay": 22,
+    "marui": 15,
+    "yahoo": 22,
+    "amazon": 35,
+    "aeon": 22
+  },
+  "official_url": "https://www.americanexpress.com/ja-jp/",
+  "last_updated": "2026-06-01",
+  "car_insurance": {
+    "score": 40,
+    "summary": "自動車保険の優遇は限定的"
+  }
+}

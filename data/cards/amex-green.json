@@ -1,0 +1,40 @@
+{
+  "id": "amex-green",
+  "name": "アメリカン・エキスプレス・カード",
+  "issuer": "アメリカン・エキスプレス",
+  "issuer_group": "amex",
+  "tier": "standard",
+  "tier_order": 1,
+  "calculator": "amex",
+  "is_anchor": false,
+  "annual_fee": {
+    "standard": 14300
+  },
+  "family_card_fee": 0,
+  "base_rate": 0.01,
+  "overseas_rate": 0.03,
+  "point_expiry": "無期限",
+  "brands": [
+    "Amex"
+  ],
+  "mobile_pay": true,
+  "priority_pass": false,
+  "lounge": false,
+  "travel_insurance": "海外最高1億円",
+  "concierge": false,
+  "ecosystem_affinity": {
+    "rakuten": 25,
+    "docomo": 20,
+    "paypay": 20,
+    "marui": 15,
+    "yahoo": 20,
+    "amazon": 32,
+    "aeon": 20
+  },
+  "official_url": "https://www.americanexpress.com/ja-jp/",
+  "last_updated": "2026-06-01",
+  "car_insurance": {
+    "score": 40,
+    "summary": "自動車保険の優遇は限定的"
+  }
+}

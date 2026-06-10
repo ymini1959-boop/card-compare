@@ -1,0 +1,28 @@
+{
+  "effective_from": "2026-06-02",
+  "description": "PayPayカード各種特典変更",
+  "paypay": {
+    "gold_base_rate": 0.01,
+    "gold_annual_bonus_threshold": 1000000,
+    "gold_annual_bonus_points": 11000,
+    "step_bonus_rate": 0.005,
+    "step_requires_ekyc": true,
+    "public_utilities_rate": 0.005
+  },
+  "epos": {
+    "under_500k_bonus_rate": 0.003,
+    "bonus_tiers": [
+      {"min_spend": 0, "bonus_points": 0, "extra_rate_note": "50万未満は利用分0.3%"},
+      {"min_spend": 500000, "bonus_points": 3000},
+      {"min_spend": 1000000, "bonus_points": 20000},
+      {"min_spend": 2000000, "bonus_points": 30000},
+      {"min_spend": 3000000, "bonus_points": 40000},
+      {"min_spend": 5000000, "bonus_points": 50000},
+      {"min_spend": 7000000, "bonus_points": 60000},
+      {"min_spend": 9000000, "bonus_points": 70000},
+      {"min_spend": 11000000, "bonus_points": 80000},
+      {"min_spend": 13000000, "bonus_points": 90000},
+      {"min_spend": 15000000, "bonus_points": 100000}
+    ]
+  }
+}

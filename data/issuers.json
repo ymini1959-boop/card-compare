@@ -1,0 +1,14 @@
+{
+  "issuers": [
+    {"id": "epos", "label": "エポスカード", "color": "#1a4d7c"},
+    {"id": "rakuten", "label": "楽天カード", "color": "#bf0000"},
+    {"id": "amex", "label": "アメリカン・エキスプレス", "color": "#006fcf"},
+    {"id": "dcard", "label": "dカード", "color": "#cc0033"},
+    {"id": "jcb", "label": "JCB", "color": "#0b6b3a"},
+    {"id": "paypay", "label": "PayPayカード", "color": "#ff0033"},
+    {"id": "saison", "label": "セゾンカード", "color": "#1e3a8a"},
+    {"id": "mitsui", "label": "三井住友カード", "color": "#004098"},
+    {"id": "aeon", "label": "イオンカード", "color": "#b60081"},
+    {"id": "mufg", "label": "三菱UFJカード", "color": "#d4002a"}
+  ]
+}

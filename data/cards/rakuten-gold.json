@@ -1,0 +1,47 @@
+{
+  "id": "rakuten-gold",
+  "name": "楽天ゴールドカード",
+  "issuer": "楽天カード",
+  "issuer_group": "rakuten",
+  "tier": "gold",
+  "tier_order": 2,
+  "calculator": "rakuten",
+  "is_anchor": false,
+  "annual_fee": {
+    "standard": 11000
+  },
+  "family_card_fee": 550,
+  "base_rate": 0.01,
+  "rakuten_market_rate": 0.03,
+  "point_expiry": "実質無期限（獲得のたび延長）",
+  "brands": [
+    "Visa",
+    "Mastercard",
+    "JCB",
+    "Amex"
+  ],
+  "mobile_pay": true,
+  "priority_pass": false,
+  "lounge": "国内主要空港（条件あり）",
+  "travel_insurance": "海外最高2000万円",
+  "concierge": false,
+  "ecosystem_affinity": {
+    "rakuten": 94,
+    "yahoo": 25,
+    "paypay": 20,
+    "docomo": 20,
+    "marui": 10,
+    "amazon": 30,
+    "aeon": 15
+  },
+  "official_url": "https://www.rakuten-card.co.jp/card/rakuten-gold-card/",
+  "last_updated": "2026-06-01",
+  "car_insurance": {
+    "score": 82,
+    "summary": "楽天損保の保険料払いでポイント還元"
+  },
+  "category_rates": {
+    "supermarket": 0.01,
+    "convenience": 0.01
+  }
+}

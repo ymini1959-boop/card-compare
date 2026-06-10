@@ -1,0 +1,41 @@
+{
+  "id": "amex-platinum",
+  "name": "アメックス・プラチナ",
+  "issuer": "アメリカン・エキスプレス",
+  "issuer_group": "amex",
+  "tier": "platinum",
+  "tier_order": 3,
+  "calculator": "amex",
+  "is_anchor": false,
+  "annual_fee": {
+    "standard": 165000
+  },
+  "family_card_fee": 0,
+  "family_card_free_count": 4,
+  "base_rate": 0.01,
+  "overseas_rate": 0.03,
+  "point_expiry": "無期限",
+  "brands": [
+    "Amex"
+  ],
+  "mobile_pay": true,
+  "priority_pass": "Centurion Lounge等",
+  "lounge": "Centurion Lounge・同伴者1名無料",
+  "travel_insurance": "海外最高1億円 / 国内最高1億円",
+  "concierge": "プラチナ・コンシェルジュ",
+  "ecosystem_affinity": {
+    "rakuten": 25,
+    "docomo": 20,
+    "paypay": 20,
+    "marui": 15,
+    "yahoo": 20,
+    "amazon": 35,
+    "aeon": 20
+  },
+  "official_url": "https://www.americanexpress.com/ja-jp/",
+  "last_updated": "2026-06-01",
+  "car_insurance": {
+    "score": 40,
+    "summary": "自動車保険の優遇は限定的"
+  }
+}

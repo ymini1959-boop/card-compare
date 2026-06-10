@@ -1,0 +1,46 @@
+{
+  "id": "dcard-gold-u",
+  "name": "dカード GOLD U",
+  "issuer": "NTTドコモ",
+  "issuer_group": "dcard",
+  "tier": "gold_u",
+  "tier_order": 2,
+  "calculator": "dcard",
+  "is_anchor": false,
+  "annual_fee": {
+    "standard": 3300
+  },
+  "family_card_fee": 1100,
+  "base_rate": 0.01,
+  "docomo_rate": 0.05,
+  "annual_bonus_tiers": [],
+  "point_expiry": "dポイント（有効期限あり）",
+  "brands": [
+    "Visa",
+    "Mastercard"
+  ],
+  "mobile_pay": true,
+  "priority_pass": false,
+  "lounge": "国内主要空港・ハワイ無料",
+  "travel_insurance": "海外最高2000万円",
+  "concierge": false,
+  "ecosystem_affinity": {
+    "docomo": 88,
+    "rakuten": 20,
+    "paypay": 22,
+    "marui": 15,
+    "yahoo": 20,
+    "amazon": 25,
+    "aeon": 20
+  },
+  "official_url": "https://dcard.docomo.ne.jp/st/dcard_gold_u/index.html",
+  "last_updated": "2026-06-01",
+  "car_insurance": {
+    "score": 88,
+    "summary": "ドコモの自動車保険でdポイント還元"
+  },
+  "category_rates": {
+    "supermarket": 0.01,
+    "convenience": 0.01
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "aeon-card-select",
+  "name": "イオンカードセレクト",
+  "issuer": "イオンカード",
+  "issuer_group": "aeon",
+  "tier": "standard",
+  "tier_order": 1,
+  "calculator": "generic",
+  "is_anchor": false,
+  "annual_fee": {"standard": 0},
+  "family_card_fee": 0,
+  "base_rate": 0.005,
+  "shop_bonus_rate": 0.02,
+  "shop_bonus_key": "aeon",
+  "category_rates": {"supermarket": 0.02, "convenience": 0.005},
+  "point_expiry": "WAON POINT",
+  "brands": ["Visa", "Mastercard", "JCB"],
+  "mobile_pay": true,
+  "priority_pass": false,
+  "lounge": false,
+  "travel_insurance": false,
+  "concierge": false,
+  "car_insurance": {
+    "score": 45,
+    "summary": "自動車保険提携優待は限定的"
+  },
+  "ecosystem_affinity": {
+    "rakuten": 15,
+    "docomo": 18,
+    "paypay": 20,
+    "marui": 10,
+    "yahoo": 15,
+    "amazon": 20,
+    "aeon": 95
+  },
+  "official_url": "https://www.aeon.co.jp/card/",
+  "last_updated": "2026-06-01"
+}
