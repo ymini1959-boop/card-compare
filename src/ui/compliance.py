@@ -6,7 +6,7 @@ def render_header() -> None:
         """
         <div class="hero-banner">
             <div class="hero-inner">
-                <div class="hero-eyebrow">✦ Card Compare</div>
+                <div class="hero-eyebrow">✦ CARD COMPARE</div>
                 <h1>クレジットカード比較</h1>
                 <p class="hero-sub">
                     エポスプラチナを基準に、年会費・還元率・特典を

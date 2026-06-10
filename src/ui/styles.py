@@ -1,32 +1,32 @@
 import streamlit as st
 
 CARD_COLORS = {
-    "epos-platinum": "#1a4d7c",
-    "epos-gold": "#2d6a9f",
-    "rakuten-premium": "#bf0000",
-    "rakuten-card": "#e60012",
-    "rakuten-black": "#1a1a1a",
-    "dcard": "#cc0033",
-    "dcard-gold": "#b8002e",
-    "dcard-platinum": "#8b0020",
-    "paypay-gold": "#ff0033",
-    "paypay-card": "#3d3d3d",
-    "amex-gold": "#006fcf",
-    "amex-platinum": "#4a4a4a",
-    "amex-green": "#007a3e",
-    "epos-card": "#4a7ba7",
-    "rakuten-gold": "#d4145a",
-    "dcard-gold-u": "#e85d75",
-    "jcb-card-w": "#0b6b3a",
-    "jcb-gold": "#096b38",
-    "jcb-platinum": "#054d28",
-    "jcb-original-gold": "#1a5c3a",
-    "saison-platinum-amex": "#1e3a8a",
-    "saison-pearl-amex": "#2563eb",
-    "saison-classic-amex": "#3b82f6",
-    "mitsui-sumitomo-nl": "#004098",
-    "aeon-card-select": "#b60081",
-    "mufg-card": "#d4002a",
+    "epos-platinum": "#1e5a9e",
+    "epos-gold": "#3b82f6",
+    "rakuten-premium": "#e60026",
+    "rakuten-card": "#ff1a3d",
+    "rakuten-black": "#2d2d3a",
+    "rakuten-gold": "#ff2d6a",
+    "dcard": "#ff1744",
+    "dcard-gold": "#d50032",
+    "dcard-platinum": "#9b0028",
+    "dcard-gold-u": "#ff4d7a",
+    "paypay-gold": "#ff2244",
+    "paypay-card": "#5c4d7a",
+    "amex-gold": "#0077ee",
+    "amex-platinum": "#3d4f6f",
+    "amex-green": "#00a86b",
+    "epos-card": "#4f8fd9",
+    "jcb-card-w": "#00a854",
+    "jcb-gold": "#008f47",
+    "jcb-platinum": "#006b38",
+    "jcb-original-gold": "#1a8f5a",
+    "saison-platinum-amex": "#1d4ed8",
+    "saison-pearl-amex": "#3b82f6",
+    "saison-classic-amex": "#60a5fa",
+    "mitsui-sumitomo-nl": "#0052cc",
+    "aeon-card-select": "#d4008f",
+    "mufg-card": "#e60028",
 }
 
 GLOBAL_CSS = """
@@ -34,21 +34,22 @@ GLOBAL_CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap');
 
 :root {
-    --bg: #eef1f6;
+    --bg: #dde4f0;
     --surface: #ffffff;
-    --surface-2: #f8fafc;
-    --ink: #0f172a;
-    --ink-muted: #64748b;
-    --ink-subtle: #94a3b8;
-    --brand: #0f2d4a;
-    --brand-mid: #1a4d7c;
-    --brand-light: #e8f0f8;
-    --accent: #c9a227;
-    --accent-soft: #fef9e7;
-    --radius: 16px;
-    --radius-sm: 12px;
-    --shadow: 0 4px 24px rgba(15, 45, 74, 0.08);
-    --shadow-sm: 0 2px 12px rgba(15, 45, 74, 0.05);
+    --surface-2: #f4f7fc;
+    --ink: #0a0f1a;
+    --ink-muted: #5a6a85;
+    --ink-subtle: #8b9cb8;
+    --brand: #0a1628;
+    --brand-mid: #1e40af;
+    --brand-light: #dbeafe;
+    --accent: #f59e0b;
+    --accent-2: #ec4899;
+    --accent-soft: #fff7ed;
+    --radius: 18px;
+    --radius-sm: 14px;
+    --shadow: 0 8px 32px rgba(30, 64, 175, 0.12);
+    --shadow-sm: 0 4px 16px rgba(30, 64, 175, 0.08);
     --safe-top: env(safe-area-inset-top, 0px);
     --safe-bottom: env(safe-area-inset-bottom, 0px);
     --safe-left: env(safe-area-inset-left, 0px);
@@ -61,7 +62,10 @@ html, body, [class*="css"] {
 }
 
 .stApp {
-    background: linear-gradient(180deg, #e8edf4 0%, var(--bg) 120px, var(--bg) 100%) !important;
+    background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59,130,246,0.15) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 0%, rgba(236,72,153,0.08) 0%, transparent 50%),
+        linear-gradient(180deg, #c8d4e8 0%, var(--bg) 180px, var(--bg) 100%) !important;
 }
 
 #MainMenu, footer, header[data-testid="stHeader"] {
@@ -82,33 +86,33 @@ html, body, [class*="css"] {
 .hero-banner {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(145deg, #071525 0%, var(--brand) 45%, #2d6a9f 100%);
+    background: linear-gradient(135deg, #020617 0%, #1e3a8a 40%, #7c3aed 85%, #db2777 100%);
     color: #fff;
     padding: 1.5rem 1.25rem 1.35rem;
-    border-radius: 20px;
+    border-radius: 22px;
     margin-bottom: 1.25rem;
-    box-shadow: var(--shadow);
+    box-shadow: 0 12px 40px rgba(30, 58, 138, 0.35);
 }
 
 .hero-banner::before {
     content: '';
     position: absolute;
-    top: -40%;
-    right: -20%;
-    width: 220px;
-    height: 220px;
-    background: radial-gradient(circle, rgba(201,162,39,0.18) 0%, transparent 70%);
+    top: -50%;
+    right: -25%;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, rgba(251,191,36,0.35) 0%, transparent 65%);
     pointer-events: none;
 }
 
 .hero-banner::after {
     content: '';
     position: absolute;
-    bottom: -30%;
-    left: -10%;
-    width: 160px;
-    height: 160px;
-    background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+    bottom: -40%;
+    left: -15%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(56,189,248,0.2) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -196,7 +200,7 @@ div[data-testid="stVerticalBlockBorderWrapper"] > div {
     display: block;
     width: 4px;
     height: 1.1rem;
-    background: linear-gradient(180deg, var(--accent), #d97706);
+    background: linear-gradient(180deg, #f59e0b, #ec4899, #8b5cf6);
     border-radius: 4px;
     flex-shrink: 0;
 }
@@ -214,11 +218,12 @@ div[data-testid="stVerticalBlockBorderWrapper"] > div {
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    background: linear-gradient(135deg, var(--brand-light) 0%, #fff 100%);
-    border: 1px solid #c7daf0;
+    background: linear-gradient(135deg, #dbeafe 0%, #ede9fe 50%, #fff 100%);
+    border: 1px solid #93c5fd;
     border-radius: var(--radius-sm);
     padding: 0.85rem 1rem;
     margin-bottom: 1rem;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.12);
 }
 
 .anchor-badge-icon {
@@ -266,16 +271,22 @@ div[data-testid="stVerticalBlockBorderWrapper"] > div {
     margin-top: 0.5rem;
 }
 
+.issuer-block-header {
+    border-left: 3px solid var(--issuer-color, #64748b);
+    padding-left: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
 .card-chip {
     display: inline-flex;
     align-items: center;
     font-size: 0.72rem;
     font-weight: 600;
-    color: var(--brand-mid);
-    background: var(--brand-light);
+    color: #fff;
     border-radius: 999px;
-    padding: 0.35rem 0.7rem;
+    padding: 0.38rem 0.75rem;
     line-height: 1.3;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 
 /* ── Win metrics (horizontal scroll on mobile) ── */
@@ -306,9 +317,9 @@ div[data-testid="stVerticalBlockBorderWrapper"] > div {
 }
 
 .win-metric.anchor {
-    border-color: var(--brand-mid);
-    background: linear-gradient(180deg, var(--brand-light) 0%, #fff 100%);
-    box-shadow: inset 0 0 0 1px rgba(26,77,124,0.12);
+    border-color: #3b82f6;
+    background: linear-gradient(180deg, #dbeafe 0%, #fff 100%);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
 }
 
 .win-metric .count {
@@ -605,19 +616,20 @@ div[data-testid="stVerticalBlockBorderWrapper"] > div {
 /* ── Streamlit widgets (touch-friendly) ── */
 .stButton > button {
     min-height: 44px !important;
-    border-radius: 10px !important;
+    border-radius: 12px !important;
     font-weight: 600 !important;
     font-size: 0.78rem !important;
-    border: 1px solid #e2e8f0 !important;
-    background: var(--surface) !important;
-    color: var(--ink) !important;
+    border: 1px solid #c7d8f0 !important;
+    background: linear-gradient(180deg, #fff 0%, #f0f5ff 100%) !important;
+    color: #1e3a8a !important;
     transition: all 0.15s ease !important;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+    box-shadow: 0 2px 6px rgba(30, 64, 175, 0.08) !important;
 }
 
 .stButton > button:hover {
-    border-color: var(--brand-mid) !important;
-    color: var(--brand-mid) !important;
+    border-color: #3b82f6 !important;
+    color: #1d4ed8 !important;
+    background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%) !important;
 }
 
 .stButton > button:active {

@@ -11,8 +11,15 @@ DEFAULT_CARDS = ["rakuten-premium"]
 def parse_query_params() -> dict:
     params = st.query_params
     spend = int(params.get("spend", "1000000"))
-    cards_raw = params.get("cards", ",".join(DEFAULT_CARDS))
-    cards = [c.strip() for c in cards_raw.split(",") if c.strip() and c.strip() != ANCHOR_ID]
+    if "cards" in params and str(params.get("cards", "")).strip():
+        cards_raw = str(params["cards"])
+        cards = [
+            c.strip()
+            for c in cards_raw.split(",")
+            if c.strip() and c.strip() != ANCHOR_ID
+        ]
+    else:
+        cards = list(DEFAULT_CARDS)
     cards = cards[:MAX_COMPARE_CARDS]
 
     axes_raw = params.get("axes", "")

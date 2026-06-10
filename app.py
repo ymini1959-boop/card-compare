@@ -19,7 +19,6 @@ from src.ui.profile_form import get_preset_axes, render_profile_form
 from src.ui.styles import inject_styles, section
 from src.ui.summary import render_car_insurance_highlight, render_win_summary
 from src.ui.url_state import (
-    DEFAULT_CARDS,
     build_share_url,
     parse_query_params,
     render_share_section,
@@ -63,7 +62,7 @@ with section("比較するカード", "💳"):
         """,
         unsafe_allow_html=True,
     )
-    default_compare = qp["cards"] if qp["cards"] else DEFAULT_CARDS
+    default_compare = qp["cards"]
     with st.expander("登録カード一覧（発行会社別）", expanded=False):
         for issuer in load_issuers():
             ids = issuer_groups.get(issuer["id"], [])
