@@ -10,7 +10,7 @@ import streamlit as st
 from src.calculator.effective_rate import ANCHOR_ID, calculate_all
 from src.data_loader import cards_by_issuer, load_axes, load_cards, load_issuers
 from src.models.profile import resolve_profile
-from src.ui.automotive_axes import merge_automotive_axes
+from src.ui.automotive_axes import apply_automotive_axes, prepare_automotive_axis_defaults
 from src.ui.axis_picker import render_axis_picker
 from src.ui.card_selector import render_card_selector
 from src.ui.charts import render_rate_chart
@@ -91,9 +91,11 @@ elif st.session_state.get("axis_preset"):
 else:
     default_axes = get_preset_axes(profile.priority)
 
+default_axes = prepare_automotive_axis_defaults(default_axes, profile.has_car)
+
 with section("比較する軸", "📊"):
     selected_axes, axis_defs = render_axis_picker(default_axes=default_axes)
-    selected_axes = merge_automotive_axes(selected_axes, axis_defs, profile.has_car)
+    selected_axes = apply_automotive_axes(selected_axes, axis_defs, profile.has_car)
 
 card_ids = [ANCHOR_ID] + selected_compare
 resolved = resolve_profile(profile)
