@@ -2,7 +2,12 @@ from __future__ import annotations
 
 import streamlit as st
 
-from src.models.profile import PRIORITY_AXIS_PRESETS, PRIORITY_OPTIONS, UserProfile
+from src.models.profile import (
+    PRIORITY_AXIS_PRESETS,
+    PRIORITY_OPTIONS,
+    UserProfile,
+    resolve_profile,
+)
 
 ECO_OPTIONS = {
     "rakuten": "楽天",
@@ -46,9 +51,18 @@ def render_profile_form(defaults: dict | None = None) -> UserProfile:
             format_func=lambda k: ECO_OPTIONS[k],
         )
         col_d1, col_d2, col_d3 = st.columns(3)
-        supermarket_heavy = col_d1.checkbox("スーパーでの買い物が多い")
-        convenience_heavy = col_d2.checkbox("コンビニ利用が多い")
-        has_car = col_d3.checkbox("自動車を保有")
+        supermarket_heavy = col_d1.checkbox(
+            "スーパーでの買い物が多い",
+            value=bool(defaults.get("supermarket_heavy", False)),
+        )
+        convenience_heavy = col_d2.checkbox(
+            "コンビニ利用が多い",
+            value=bool(defaults.get("convenience_heavy", False)),
+        )
+        has_car = col_d3.checkbox(
+            "自動車を保有",
+            value=bool(defaults.get("has_car", False)),
+        )
 
     detail_kwargs = {
         "supermarket_heavy": supermarket_heavy,
@@ -132,7 +146,7 @@ def render_profile_form(defaults: dict | None = None) -> UserProfile:
     if defaults.get("mode") == "detail":
         profile_mode = "detail"
 
-    return UserProfile(
+    profile = UserProfile(
         mode=profile_mode,
         annual_spend=annual_spend,
         priority=priority,
@@ -159,6 +173,20 @@ def render_profile_form(defaults: dict | None = None) -> UserProfile:
         supermarket_annual_spend=detail_kwargs.get("supermarket_annual_spend") or None,
         convenience_annual_spend=detail_kwargs.get("convenience_annual_spend") or None,
     )
+
+    if supermarket_heavy or convenience_heavy or has_car:
+        resolved = resolve_profile(profile)
+        hints = []
+        if supermarket_heavy or convenience_heavy:
+            hints.append(
+                f"スーパー {resolved.supermarket_annual_spend:,}円／"
+                f"コンビニ {resolved.convenience_annual_spend:,}円 を試算に反映"
+            )
+        if has_car:
+            hints.append("自動車保険優遇の比較を表示")
+        st.caption("✓ " + " ｜ ".join(hints))
+
+    return profile
 
 
 def get_preset_axes(priority: str) -> list[str]:

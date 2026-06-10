@@ -33,6 +33,9 @@ def parse_query_params() -> dict:
     if priority not in PRIORITY_OPTIONS:
         priority = "reward"
 
+    def _flag(name: str) -> bool:
+        return str(params.get(name, "")).lower() in ("1", "true", "yes", "on")
+
     return {
         "spend": spend,
         "cards": cards,
@@ -40,6 +43,9 @@ def parse_query_params() -> dict:
         "mode": mode,
         "eco": eco,
         "priority": priority,
+        "supermarket_heavy": _flag("supermarket"),
+        "convenience_heavy": _flag("convenience"),
+        "has_car": _flag("car"),
     }
 
 
@@ -50,6 +56,9 @@ def build_share_url(
     mode: str,
     eco: list[str],
     priority: str,
+    supermarket_heavy: bool = False,
+    convenience_heavy: bool = False,
+    has_car: bool = False,
 ) -> str:
     compare_cards = [c for c in cards if c != ANCHOR_ID][:MAX_COMPARE_CARDS]
     params = {
@@ -60,6 +69,12 @@ def build_share_url(
         "eco": ",".join(eco),
         "priority": priority,
     }
+    if supermarket_heavy:
+        params["supermarket"] = "1"
+    if convenience_heavy:
+        params["convenience"] = "1"
+    if has_car:
+        params["car"] = "1"
     query = urlencode(params)
     try:
         host = st.context.headers.get("Host", "")
@@ -78,18 +93,26 @@ def sync_query_params(
     mode: str,
     eco: list[str],
     priority: str,
+    supermarket_heavy: bool = False,
+    convenience_heavy: bool = False,
+    has_car: bool = False,
 ) -> None:
     compare_cards = [c for c in cards if c != ANCHOR_ID][:MAX_COMPARE_CARDS]
-    st.query_params.from_dict(
-        {
-            "spend": str(spend),
-            "cards": ",".join(compare_cards),
-            "axes": ",".join(axes),
-            "mode": mode,
-            "eco": ",".join(eco),
-            "priority": priority,
-        }
-    )
+    params = {
+        "spend": str(spend),
+        "cards": ",".join(compare_cards),
+        "axes": ",".join(axes),
+        "mode": mode,
+        "eco": ",".join(eco),
+        "priority": priority,
+    }
+    if supermarket_heavy:
+        params["supermarket"] = "1"
+    if convenience_heavy:
+        params["convenience"] = "1"
+    if has_car:
+        params["car"] = "1"
+    st.query_params.from_dict(params)
 
 
 def render_share_section(share_url: str) -> None:

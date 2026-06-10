@@ -44,6 +44,9 @@ defaults = {
     "mode": qp["mode"],
     "eco": qp["eco"],
     "priority": qp["priority"],
+    "supermarket_heavy": qp["supermarket_heavy"],
+    "convenience_heavy": qp["convenience_heavy"],
+    "has_car": qp["has_car"],
 }
 
 with section("あなたの条件", "📋"):
@@ -138,6 +141,9 @@ sync_query_params(
     mode=profile.mode,
     eco=profile.ecosystems,
     priority=profile.priority,
+    supermarket_heavy=profile.supermarket_heavy,
+    convenience_heavy=profile.convenience_heavy,
+    has_car=profile.has_car,
 )
 
 share_url = build_share_url(
@@ -147,6 +153,9 @@ share_url = build_share_url(
     mode=profile.mode,
     eco=profile.ecosystems,
     priority=profile.priority,
+    supermarket_heavy=profile.supermarket_heavy,
+    convenience_heavy=profile.convenience_heavy,
+    has_car=profile.has_car,
 )
 
 with section("この比較を共有", "🔗"):
